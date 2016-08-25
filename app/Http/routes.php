@@ -11,6 +11,26 @@
 |
 */
 
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
+});
+
+Route::get('/student/all', function (){
+	return view('allstudent');
+});
+
+Route::get('/student/add', function (){
+	return view('addstudent');
+});
+
+Route::get('/student/detail', function (){
+	return view('detailstudent');
+});
+
+Route::get('/student/edit/grade', function (){
+	return view('addstudentgradereport');
 });
