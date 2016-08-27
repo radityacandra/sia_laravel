@@ -13,24 +13,36 @@
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
-
 Route::get('/', function () {
 	return view('welcome');
 });
 
+Route::get('/home', 'HomeController@index');
+
 Route::get('/student/all', function (){
-	return view('allstudent');
+	return view('student.allstudent');
 });
 
 Route::get('/student/add', function (){
-	return view('addstudent');
+	return view('student.addstudent');
 });
 
 Route::get('/student/detail', function (){
-	return view('detailstudent');
+	return view('student.detailstudent');
 });
 
 Route::get('/student/edit/grade', function (){
-	return view('addstudentgradereport');
+	return view('student.addstudentgradereport');
+});
+
+Route::get('/teacher/all', function (){
+	return view('teacher.allteacher');
+});
+
+Route::get('teacher/detail', function (){
+	return view('teacher.detailteacher');
+});
+
+Route::get('teacher/add', function(){
+	return view('teacher.addteacher');
 });
