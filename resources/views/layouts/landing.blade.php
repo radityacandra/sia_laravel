@@ -7,11 +7,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Adminlte-laravel - {{ trans('adminlte_lang::message.landingdescription') }} ">
-    <meta name="author" content="Sergi Tur Badenas - acacha.org">
+    <meta name="author" content="Raditya Chandra Buana - radityacandra.my.id">
 
-    <meta property="og:title" content="Adminlte-laravel" />
+    <meta property="og:title" content="Sistem Informasi Akademik" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="Adminlte-laravel - {{ trans('adminlte_lang::message.landingdescription') }}" />
+    <meta property="og:description" content="Sistem Informasi Akademik - {{ trans('adminlte_lang::message.landingdescription') }}" />
     <meta property="og:url" content="http://demo.adminlte.acacha.org/" />
     <meta property="og:image" content="http://demo.adminlte.acacha.org/img/AcachaAdminLTE.png" />
     <meta property="og:image" content="http://demo.adminlte.acacha.org/img/AcachaAdminLTE600x600.png" />
@@ -20,8 +20,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     <meta property="og:url" content="http://demo.adminlte.acacha.org" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@acachawiki" />
-    <meta name="twitter:creator" content="@acacha1" />
+    <meta name="twitter:site" content="@RCBganteng" />
+    <meta name="twitter:creator" content="@RCBganteng" />
 
     <title>{{ trans('adminlte_lang::message.landingdescriptionpratt') }}</title>
 
