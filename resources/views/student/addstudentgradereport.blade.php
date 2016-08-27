@@ -82,6 +82,8 @@
 						</tr>
 						</tbody>
 					</table>
+					
+					<button type="submit" class="btn btn-default col-md-12">Update Nilai</button>
 				</div>
 			</div>
 		</div>
@@ -309,6 +311,8 @@
 						</tr>
 						</tbody>
 					</table>
+					
+					<button type="submit" class="btn btn-default col-md-12">Update Nilai</button>
 				</div>
 			</div>
 		</div>
