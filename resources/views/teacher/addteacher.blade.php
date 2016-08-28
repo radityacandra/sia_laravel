@@ -138,49 +138,60 @@
 						<h3 class="box-title">Pengajaran Guru</h3>
 					</div>
 					<div class="box-body">
-						<div class="form-group">
-							<div class="col-md-5">
-								<label class="control-label">Nama Mata Pelajaran 1</label>
+						<div id="group1" style="background:rgba(0,0,0,0.4); padding-top:10px; padding-bottom:1px; padding-left:8px; padding-right:8px; margin-bottom:4px;">
+							<div class="form-group">
+								<div class="col-md-5">
+									<label class="control-label">Nama Mata Pelajaran 1</label>
+								</div>
+								<div class="col-md-5">
+									<input type="text" name="mapel" id="mapel" class="form-control" placeholder="masukkan kata kunci">
+								</div>
 							</div>
-							<div class="col-md-5">
-								<input type="text" name="mapel" id="mapel" class="form-control" placeholder="masukkan kata kunci">
+
+							<div class="form-group">
+								<div class="col-md-5">
+									<label class="control-label">Kode Mata Pelajaran 1</label>
+								</div>
+								<div class="col-md-5">
+									<input type="text" name="mapel" id="mapel" class="form-control" value="MTK1a" disabled>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-md-5">
+									<label class="control-label">Bobot Mapel</label>
+								</div>
+								<div class="col-md-5">
+									<input type="text" name="mapel" id="mapel" class="form-control" value="3 Jam Pelajaran" disabled>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-md-5">
+									<label class="control-label">Bobot Mapel</label>
+								</div>
+								<div class="col-md-5">
+									<input type="text" name="mapel" id="mapel" class="form-control" value="3 Jam Pelajaran" disabled>
+								</div>
+							</div>
+
+							<div class="row" style="padding-bottom:10px;" id="deletemapel">
+								<div class="col-md-10">
+									<button class="btn btn-primary" style="float:right;">Batal tambahkan</button>
+								</div>
 							</div>
 						</div>
 						
-						<div class="row">
+						
+						<div class="row" style="margin-bottom:10px; margin-top:10px;">
 							<div class="col-md-10">
 								<button class="btn btn-primary" style="float:right;">Tambah Mata Pelajaran</button>
 							</div>
 						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-md-12">
-				<div class="box box-solid box-primary">
-					<div class="box-header with-border">
-						<h3 class="box-title">Relasi Mata Pelajaran</h3>
-					</div>
-					<div class="box-body">
-						<div class="form-group">
-							<div class="col-md-5">
-								<label class="control-label">Konsentrasi Siswa</label>
-							</div>
-							<div class="col-md-5">
-								<select class="form-control" name="class">
-									<option>Belum mengambil konsentrasi</option>
-									<option>Ilmu Pengetahuan Alam</option>
-									<option>Ilmu Pengetahuan Sosial</option>
-									<option>Bahasa</option>
-								</select>
-							</div>
-						</div>
-						
-						<div class="form-group">
-							<div class="col-md-3 col-md-offset-5">
-								<button type="submit" class="col-md-10 btn btn-primary"><i class="fa fa-user"></i> masukkan Data</button>
+
+						<div class="row">
+							<div class="col-md-10">
+								<button class="btn btn-primary" style="float:right;">Simpan</button>
 							</div>
 						</div>
 					</div>
