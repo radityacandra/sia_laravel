@@ -45,7 +45,7 @@
                 <a href="#"><i class='fa fa-user-md'></i> <span>{{ trans('adminlte_lang::message.teacher') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="{{ url('teacher/all') }}">{{ trans('adminlte_lang::message.allteacher') }}</a></li>
-                    <li><a href="#">{{ trans('adminlte_lang::message.addteacher') }}</a></li>
+                    <li><a href="{{ url('teacher/add') }}">{{ trans('adminlte_lang::message.addteacher') }}</a></li>
                 </ul>
             </li>
             <li class="treeview">
