@@ -30,6 +30,11 @@ desired effect
 |---------------------------------------------------------|
 -->
 <body class="skin-blue sidebar-mini">
+
+@section('scripts')
+    @include('layouts.partials.scripts')
+@show
+
 <div class="wrapper">
 
     @include('layouts.partials.mainheader')
@@ -53,10 +58,6 @@ desired effect
     @include('layouts.partials.footer')
 
 </div><!-- ./wrapper -->
-
-@section('scripts')
-    @include('layouts.partials.scripts')
-@show
 
 </body>
 </html>
