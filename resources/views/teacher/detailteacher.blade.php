@@ -84,7 +84,7 @@
 								<td>7 Kelas</td>
 								<td>21 Jam</td>
 								<td>
-									<a class="btn btn-primary">Lihat Mapel</a>
+									<a class="btn btn-primary" href="{{ url('mapel/detail') }}">Lihat Mapel</a>
 									<a class="btn btn-primary">Masukkan Nilai</a>
 								</td>
 							</tr>
@@ -94,7 +94,7 @@
 								<td>7 Kelas</td>
 								<td>21 Jam</td>
 								<td>
-									<a class="btn btn-primary">Lihat Mapel</a>
+									<a class="btn btn-primary" href="{{ url('mapel/detail') }}">Lihat Mapel</a>
 									<a class="btn btn-primary">Masukkan Nilai</a>
 								</td>
 							</tr>

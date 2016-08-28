@@ -58,7 +58,7 @@
             <li class="treeview">
                 <a href="#"><i class='fa fa-book'></i> <span>{{ trans('adminlte_lang::message.subject') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">{{ trans('adminlte_lang::message.allsubject') }}</a></li>
+                    <li><a href="{{ url('mapel/all') }}">{{ trans('adminlte_lang::message.allsubject') }}</a></li>
                     <li><a href="#">{{ trans('adminlte_lang::message.addsubject') }}</a></li>
                 </ul>
             </li>

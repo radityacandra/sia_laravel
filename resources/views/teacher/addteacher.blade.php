@@ -144,7 +144,16 @@
 									<label class="control-label">Nama Mata Pelajaran 1</label>
 								</div>
 								<div class="col-md-5">
-									<input type="text" name="mapel" id="mapel" class="form-control" placeholder="masukkan kata kunci">
+
+									<select class="form-control example">
+										<option>Coba 1</option>
+										<option>Coba 2</option>
+									</select>
+
+									<script type="text/javascript" async defer>
+									$(".example").select2();
+									</script>
+
 								</div>
 							</div>
 
@@ -154,15 +163,6 @@
 								</div>
 								<div class="col-md-5">
 									<input type="text" name="mapel" id="mapel" class="form-control" value="MTK1a" disabled>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<div class="col-md-5">
-									<label class="control-label">Bobot Mapel</label>
-								</div>
-								<div class="col-md-5">
-									<input type="text" name="mapel" id="mapel" class="form-control" value="3 Jam Pelajaran" disabled>
 								</div>
 							</div>
 
