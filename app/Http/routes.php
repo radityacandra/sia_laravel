@@ -46,3 +46,11 @@ Route::get('teacher/detail', function (){
 Route::get('teacher/add', function(){
 	return view('teacher.addteacher');
 });
+
+Route::get('mapel/all', function(){
+	return view('mapel.allmapel');
+});
+
+Route::get('mapel/detail', function(){
+	return view('mapel.detailmapel');
+});
