@@ -51,8 +51,8 @@
             <li class="treeview">
                 <a href="#"><i class='fa fa-building'></i> <span>{{ trans('adminlte_lang::message.class') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">{{ trans('adminlte_lang::message.allclass') }}</a></li>
-                    <li><a href="#">{{ trans('adminlte_lang::message.addclass') }}</a></li>
+                    <li><a href="{{ url('class/all') }}">{{ trans('adminlte_lang::message.allclass') }}</a></li>
+                    <li><a href="{{ url('class/add') }}">{{ trans('adminlte_lang::message.addclass') }}</a></li>
                 </ul>
             </li>
             <li class="treeview">
