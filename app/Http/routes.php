@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -53,4 +54,8 @@ Route::get('mapel/all', function(){
 
 Route::get('mapel/detail', function(){
 	return view('mapel.detailmapel');
+});
+
+Route::get('mapel/add', function(){
+	return view('mapel.addmapel');
 });
