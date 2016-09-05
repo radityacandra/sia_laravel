@@ -59,3 +59,11 @@ Route::get('mapel/detail', function(){
 Route::get('mapel/add', function(){
 	return view('mapel.addmapel');
 });
+
+Route::get('class/all', function (){
+	return view('class.allclass');
+});
+
+Route::get('class/add', function (){
+	return view('class.addclass');
+});
