@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-	Semua Siswa
+	Semua Mata Pelajaran
 @endsection
 
 @section('contentheader_title')
-	Semua Siswa
+	Semua Mata Pelajaran
 @endsection
 
 @section('contentheader_description')
-	Data semua siswa SMA N 1 Salatiga
+	Data semua Mata Pelajaran SMA N 1 Salatiga
 @endsection
 
 @section('main-content')
