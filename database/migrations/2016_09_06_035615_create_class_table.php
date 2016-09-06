@@ -15,7 +15,7 @@ class CreateClassTable extends Migration
         Schema::create('class', function (Blueprint $table) {
             $table->string('class_id')->primary();
             $table->timestamps();
-            $table->string('clsas_name');
+            $table->string('class_name');
             $table->integer('student_count');
             $table->integer('consentration_id');
         });
