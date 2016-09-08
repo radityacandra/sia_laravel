@@ -29,7 +29,7 @@
 				<span class="info-box-icon bg-aqua"><i class="fa fa-users"></i></span>
 				<div class="info-box-content">
 					<span class="info-box-text"><strong>Total Siswa</strong></span>
-					<span class="info-box-number">1290 Siswa</span>
+					<span class="info-box-number">{{ $viewData['total_student'] }} Siswa</span>
 				</div>
 			</div>
 		</div>
@@ -39,7 +39,7 @@
 				<span class="info-box-icon bg-blue"><i class="fa fa-building"></i></span>
 				<div class="info-box-content">
 					<span class="info-box-text"><strong>Total Kelas</strong></span>
-					<span class="info-box-number">40 Kelas</span>
+					<span class="info-box-number">{{ $viewData['total_class'] }} Kelas</span>
 				</div>
 			</div>
 		</div>
@@ -49,7 +49,7 @@
 				<span class="info-box-icon bg-blue-active"><i class="fa fa-user-md"></i></span>
 				<div class="info-box-content">
 					<span class="info-box-text"><strong>Total Guru</strong></span>
-					<span class="info-box-number">50 Guru</span>
+					<span class="info-box-number">{{ $viewData['total_teacher'] }} Guru</span>
 				</div>
 			</div>
 		</div>
@@ -105,46 +105,13 @@
 				</div>
 				<div class="box-body">
 					<ul class="users-list clearfix">
-						<li>
-							<img src="{{ url('/img/user2-160x160.jpg') }}" alt="user image">
-							<a class="users-list-name" href="#">Raditya Chandra Buana</a>
-							<span class="users-list-date">Today</span>
-						</li>
-						<li>
-							<img src="{{ url('/img/user2-160x160.jpg') }}" alt="user image">
-							<a class="users-list-name" href="#">Raditya Chandra Buana</a>
-							<span class="users-list-date">Today</span>
-						</li>
-						<li>
-							<img src="{{ url('/img/user2-160x160.jpg') }}" alt="user image">
-							<a class="users-list-name" href="#">Raditya Chandra Buana</a>
-							<span class="users-list-date">Today</span>
-						</li>
-						<li>
-							<img src="{{ url('/img/user2-160x160.jpg') }}" alt="user image">
-							<a class="users-list-name" href="#">Raditya Chandra Buana</a>
-							<span class="users-list-date">Today</span>
-						</li>
-						<li>
-							<img src="{{ url('/img/user2-160x160.jpg') }}" alt="user image">
-							<a class="users-list-name" href="#">Raditya Chandra Buana</a>
-							<span class="users-list-date">Today</span>
-						</li>
-						<li>
-							<img src="{{ url('/img/user2-160x160.jpg') }}" alt="user image">
-							<a class="users-list-name" href="#">Raditya Chandra Buana</a>
-							<span class="users-list-date">Today</span>
-						</li>
-						<li>
-							<img src="{{ url('/img/user2-160x160.jpg') }}" alt="user image">
-							<a class="users-list-name" href="#">Raditya Chandra Buana</a>
-							<span class="users-list-date">Today</span>
-						</li>
-						<li>
-							<img src="{{ url('/img/user2-160x160.jpg') }}" alt="user image">
-							<a class="users-list-name" href="#">Raditya Chandra Buana</a>
-							<span class="users-list-date">Today</span>
-						</li>
+						@foreach($viewData['list_student'] as $student)
+							<li>
+								<img src="{{ $student->student_picture }}" alt="user image">
+								<a class="users-list-name" href="#">{{ $student->full_name }}</a>
+								<span class="users-list-date">{{ $student->created_at->diffForHumans() }}</span>
+							</li>
+						@endforeach
 					</ul>
 				</div>
 				<div class="box-footer text-center">
