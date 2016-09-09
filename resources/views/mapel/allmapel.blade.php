@@ -78,18 +78,26 @@
 							</tr>
 						</thead>
 						<tbody>
+						
+						@foreach($viewData['list_subject'] as $subject)
 							<tr>
-								<td>MTK1a</td>
-								<td>Matematika Kelas X Semester 1</td>
-								<td>3</td>
+								<td>{{ $subject->code_subject }}</td>
+								<td>{{ $subject->subject_name }}</td>
+								<td>{{ $subject->subject_weight }} Jam Pelajaran</td>
 								<td>
 									<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
 									<a class="btn btn-default" href="{{ url('mapel/detail') }}"><i class="fa fa-info"></i> Lihat Detail</a>
 									<a class="btn btn-default"><i class="fa fa-trash"></i> Hapus</a>
 								</td>
 							</tr>
+						@endforeach
+							
 						</tbody>
 					</table>
+					
+					<div style="float: right;">
+						{{ $viewData['list_subject']->render() }}
+					</div>
 				</div>
 			</div>
 		</div>
