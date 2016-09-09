@@ -11,4 +11,8 @@ class Subject extends Model
 	public $timestamps = true;
 	
 	protected $fillable = ['code_subject', 'subject_name', 'subject_weight', 'consentration_id'];
+	
+	public function detailConsentration(){
+		return $this->belongsTo('App\Consentration', 'consentration_id', 'consentration_id');
+	}
 }

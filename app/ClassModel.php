@@ -11,4 +11,12 @@ class ClassModel extends Model
 	public $timestamps = true;
 	
 	protected $fillable = ['class_name', 'student_count', 'consentration_id'];
+	
+	public function memberStudent(){
+		return $this->hasMany('App\Student', 'current_class', 'class_id');
+	}
+	
+	public function detailConsentration(){
+		return $this->belongsTo('App\Consentration', 'consentration_id', 'consentration_id');
+	}
 }

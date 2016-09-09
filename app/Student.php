@@ -11,4 +11,8 @@ class Student extends Model
 	public $timestamps = true;
 	
 	protected $fillable = ['NIM', 'full_name', 'joined_at', 'birth_place', 'birth_date', 'father_name', 'mother_name', 'student_address', 'parent_address', 'student_phone', 'parent_phone', 'student_picture'];
+
+	public function detailClass(){
+		return $this->belongsTo('App\ClassModel', 'current_class', 'class_id');
+	}
 }
