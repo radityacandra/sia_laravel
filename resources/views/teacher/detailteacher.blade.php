@@ -21,11 +21,11 @@
 				</div>
 				<div class="box-body">
 					<div class="col-md-4 col-sm-12">
-						<img src="{{ url('img/user2-160x160.jpg') }}" class="col-md-12" alt="pas foto">
+						<img src="{{ $viewData['teacher_profile']->teacher_picture }}" class="col-md-12" alt="pas foto">
 					</div>
 					<div class="col-md-8">
-						<div class="col-md-4 col-sm-6"><h3>Nama</h3></div><div class="col-md-8 col-sm-6"><h3>: Raditya Chandra Buana</h3></div>
-						<div class="col-md-4 col-sm-6"><h3>NIP</h3></div><div class="col-md-8 col-sm-6"><h3>: 1981 0921 2014 04 1001</h3></div>
+						<div class="col-md-4 col-sm-6"><h3>Nama</h3></div><div class="col-md-8 col-sm-6"><h3>: {{ $viewData['teacher_profile']->full_name }}</h3></div>
+						<div class="col-md-4 col-sm-6"><h3>NIP</h3></div><div class="col-md-8 col-sm-6"><h3>: {{ $viewData['teacher_profile']->NIP }}</h3></div>
 						<div class="col-md-4 col-sm-6"><h3>Status</h3></div><div class="col-md-8 col-sm-6"><h3>: Wali Kelas</h3></div>
 						<div class="col-md-6 col-sm-6" style="margin-top:20px;"><a class="btn btn-primary col-md-12 col-sm-12">Jadikan Guru</a></div>
 						<div class="col-md-6 col-sm-6" style="margin-top:20px;"><a class="btn btn-primary col-md-12 col-sm-12">Jadikan Wali Kelas</a></div>

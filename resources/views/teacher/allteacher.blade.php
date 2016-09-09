@@ -98,40 +98,26 @@
 						</tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>1981 0921 2014 04 1001</td>
-							<td>Dr. Eng. Raditya Chandra Buana, S.T., M.Eng.</td>
-							<td><label class="label label-info">Guru</label></td>
-							<td>
-								<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
-								<a class="btn btn-default" href="{{ url('teacher/detail') }}"><i class="fa fa-info"></i> Lihat Detail</a>
-								<a class="btn btn-default"><i class="fa fa-trash"></i> Hapus</a>
-							</td>
-						</tr>
 						
-						<tr>
-							<td>1981 0921 2014 04 1001</td>
-							<td>Raditya Chandra Buana</td>
-							<td><label class="label label-warning">Wali Kelas</label></td>
-							<td>
-								<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
-								<a class="btn btn-default" href="{{ url('teacher/detail') }}"><i class="fa fa-info"></i> Lihat Detail</a>
-								<a class="btn btn-default"><i class="fa fa-trash"></i> Hapus</a>
-							</td>
-						</tr>
+						@foreach($viewData['list_teacher'] as $teacher)
+							<tr>
+								<td>{{ $teacher->NIP }}</td>
+								<td>{{ $teacher->full_name }}</td>
+								<td><label class="label label-info">Guru</label></td>
+								<td>
+									<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
+									<a class="btn btn-default" href="{{ url('teacher/detail/'.$teacher->NIP) }}"><i class="fa fa-info"></i> Lihat Detail</a>
+									<a class="btn btn-default"><i class="fa fa-trash"></i> Hapus</a>
+								</td>
+							</tr>
+						@endforeach
 						
-						<tr>
-							<td>1981 0921 2014 04 1001</td>
-							<td>Raditya Chandra Buana</td>
-							<td><label class="label label-info">Guru</label></td>
-							<td>
-								<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
-								<a class="btn btn-default" href="{{ url('teacher/detail') }}"><i class="fa fa-info"></i> Lihat Detail</a>
-								<a class="btn btn-default"><i class="fa fa-trash"></i> Hapus</a>
-							</td>
-						</tr>
 						</tbody>
 					</table>
+					
+					<div style="float:right">
+						{{ $viewData['list_teacher']->render() }}
+					</div>
 				</div>
 			</div>
 		</div>
