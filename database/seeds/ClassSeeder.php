@@ -12,6 +12,8 @@ class ClassSeeder extends Seeder
 	 */
 	public function run()
 	{
+		DB::table('class')->delete();
+		
 		$classModel = new ClassModel();
 		$classModel->class_id = 'X1';
 		$classModel->created_at = \Carbon\Carbon::now();
