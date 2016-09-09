@@ -104,43 +104,27 @@
 						</tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>39511</td>
-							<td>Raditya Chandra Buana</td>
-							<td>X-9</td>
-							<td><label class="label label-info">Aktif</label></td>
-							<td>
-								<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
-								<a class="btn btn-default" href="{{ url('student/detail') }}"><i class="fa fa-info"></i> Lihat Detail</a>
-								<a class="btn btn-default"><i class="fa fa-trash"></i> Hapus</a>
-							</td>
-						</tr>
 						
-						<tr>
-							<td>39511</td>
-							<td>Raditya Chandra Buana</td>
-							<td>X-9</td>
-							<td><label class="label label-danger">Nonaktif</label></td>
-							<td>
-								<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
-								<a class="btn btn-default" href="{{ url('student/detail') }}"><i class="fa fa-info"></i> Lihat Detail</a>
-								<a class="btn btn-default"><i class="fa fa-trash"></i> Hapus</a>
-							</td>
-						</tr>
+						@foreach($viewData['list_student'] as $student)
+							<tr>
+								<td>{{ $student->NIM }}</td>
+								<td>{{ $student->full_name }}</td>
+								<td>{{ $student->detailClass->class_name }}</td>
+								<td><label class="label label-info">Aktif</label></td>
+								<td>
+									<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
+									<a class="btn btn-default" href="{{ url('student/detail/'.$student->NIM) }}"><i class="fa fa-info"></i> Lihat Detail</a>
+									<a class="btn btn-default"><i class="fa fa-trash"></i> Hapus</a>
+								</td>
+							</tr>
+						@endforeach
 						
-						<tr>
-							<td>39511</td>
-							<td>Raditya Chandra Buana</td>
-							<td>X-9</td>
-							<td><label class="label label-info">Aktif</label></td>
-							<td>
-								<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
-								<a class="btn btn-default" href="{{ url('student/detail') }}"><i class="fa fa-info"></i> Lihat Detail</a>
-								<a class="btn btn-default"><i class="fa fa-trash"></i> Hapus</a>
-							</td>
-						</tr>
 						</tbody>
 					</table>
+					
+					<div style="float: right">
+						{{ $viewData['list_student']->render() }}
+					</div>
 				</div>
 			</div>
 		</div>

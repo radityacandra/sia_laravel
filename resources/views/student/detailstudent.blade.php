@@ -21,12 +21,12 @@
 				</div>
 				<div class="box-body">
 					<div class="col-md-4">
-						<img src="{{ url('img/user2-160x160.jpg') }}" class="col-md-12" alt="pas foto">
+						<img src="{{ $viewData['student_profile']->student_picture }}" class="col-md-12" alt="pas foto">
 					</div>
 					<div class="col-md-8">
-						<div class="col-md-4 col-sm-6"><h3>Nama</h3></div><div class="col-md-8 col-sm-6"><h3>: Raditya Chandra Buana</h3></div>
-						<div class="col-md-4 col-sm-6"><h3>NIS</h3></div><div class="col-md-8 col-sm-6"><h3>: 39511</h3></div>
-						<div class="col-md-4 col-sm-6"><h3>Kelas</h3></div><div class="col-md-8 col-sm-6"><h3>: X-9</h3></div>
+						<div class="col-md-4 col-sm-6"><h3>Nama</h3></div><div class="col-md-8 col-sm-6"><h3>: {{ $viewData['student_profile']->full_name }}</h3></div>
+						<div class="col-md-4 col-sm-6"><h3>NIS</h3></div><div class="col-md-8 col-sm-6"><h3>: {{ $viewData['student_profile']->NIM }}</h3></div>
+						<div class="col-md-4 col-sm-6"><h3>Kelas</h3></div><div class="col-md-8 col-sm-6"><h3>: {{ $viewData['student_profile']->detailClass->class_name }}</h3></div>
 						<div class="col-md-4 col-sm-6"><h3>Konsentrasi</h3></div><div class="col-md-8 col-sm-6"><h3>: Ilmu Pengetahuan Alam</h3></div>
 						<div class="col-md-4 col-sm-6"><h3>Ranking Kelas</h3></div><div class="col-md-8 col-sm-6"><h3>: 4</h3></div>
 						<div class="col-md-4 col-sm-6"><h3>Ranking Sekolah</h3></div><div class="col-md-8 col-sm-6"><h3>: 9</h3></div>

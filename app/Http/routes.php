@@ -20,49 +20,41 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/student/all', function (){
-	return view('student.allstudent');
-});
+Route::get('/student/all', 'StudentDisplayController@displayAllStudent');
 
 Route::get('/student/add', function (){
 	return view('student.addstudent');
 });
 
-Route::get('/student/detail', function (){
-	return view('student.detailstudent');
-});
+Route::get('/student/detail', 'StudentDisplayController@displayDetailStudent');
+
+Route::get('/student/detail/{NIM}', 'StudentDisplayController@setSessionDetailStudent');
 
 Route::get('/student/edit/grade', function (){
 	return view('student.addstudentgradereport');
 });
 
-Route::get('/teacher/all', function (){
-	return view('teacher.allteacher');
-});
+Route::get('/teacher/all', 'TeacherDisplayController@displayAllTeacher');
 
-Route::get('teacher/detail', function (){
-	return view('teacher.detailteacher');
-});
+Route::get('/teacher/detail', 'TeacherDisplayController@displayDetailTeacher');
+
+Route::get('/teacher/detail/{NIP}', 'TeacherDisplayController@setTeacherSession');
 
 Route::get('teacher/add', function(){
 	return view('teacher.addteacher');
 });
 
-Route::get('mapel/all', function(){
-	return view('mapel.allmapel');
-});
+Route::get('mapel/all', 'MapelDisplayController@displayAllMapel');
 
-Route::get('mapel/detail', function(){
-	return view('mapel.detailmapel');
-});
+Route::get('mapel/detail', 'MapelDisplayController@displayDetailSubject');
+
+Route::get('mapel/detail/{code_subject}', 'MapelDisplayController@setSubjectSession');
 
 Route::get('mapel/add', function(){
 	return view('mapel.addmapel');
 });
 
-Route::get('class/all', function (){
-	return view('class.allclass');
-});
+Route::get('class/all', 'ClassDisplayController@displayAllClass');
 
 Route::get('class/add', function (){
 	return view('class.addclass');
