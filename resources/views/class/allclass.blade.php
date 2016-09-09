@@ -90,51 +90,26 @@
 						</tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>MTK1a</td>
-							<td>X-1</td>
-							<td>Belum Konsentrasi</td>
-							<td>
-								<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
-								<a class="btn btn-default" href="{{ url('mapel/detail') }}"><i class="fa fa-info"></i> Lihat Detail</a>
-								<a class="btn btn-default"><i class="fa fa-trash"></i> Hapus</a>
-							</td>
-						</tr>
 						
-						<tr>
-							<td>XIIA1</td>
-							<td>XI IA-1</td>
-							<td>Ilmu Pengetahuan Alam</td>
-							<td>
-								<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
-								<a class="btn btn-default" href="{{ url('mapel/detail') }}"><i class="fa fa-info"></i> Lihat Detail</a>
-								<a class="btn btn-default"><i class="fa fa-trash"></i> Hapus</a>
-							</td>
-						</tr>
+						@foreach($viewData['list_class'] as $class)
+							<tr>
+								<td>{{ $class->class_id }}</td>
+								<td>{{ $class->class_name }}</td>
+								<td>{{ $class->detailConsentration->consentration_name }}</td>
+								<td>
+									<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
+									<a class="btn btn-default" href="{{ url('mapel/detail') }}"><i class="fa fa-info"></i> Lihat Detail</a>
+									<a class="btn btn-default"><i class="fa fa-trash"></i> Hapus</a>
+								</td>
+							</tr>
+						@endforeach
 						
-						<tr>
-							<td>XIIS1</td>
-							<td>XI IS-1</td>
-							<td>Ilmu Pengetahuan Sosial</td>
-							<td>
-								<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
-								<a class="btn btn-default" href="{{ url('mapel/detail') }}"><i class="fa fa-info"></i> Lihat Detail</a>
-								<a class="btn btn-default"><i class="fa fa-trash"></i> Hapus</a>
-							</td>
-						</tr>
-						
-						<tr>
-							<td>XIIB1</td>
-							<td>XI IB-1</td>
-							<td>Sastra dan Bahasa</td>
-							<td>
-								<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
-								<a class="btn btn-default" href="{{ url('mapel/detail') }}"><i class="fa fa-info"></i> Lihat Detail</a>
-								<a class="btn btn-default"><i class="fa fa-trash"></i> Hapus</a>
-							</td>
-						</tr>
 						</tbody>
 					</table>
+					
+					<div style="float: right;">
+						{{ $viewData['list_class']->render() }}
+					</div>
 				</div>
 			</div>
 		</div>
