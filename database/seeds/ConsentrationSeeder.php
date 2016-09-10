@@ -14,7 +14,7 @@ class ConsentrationSeeder extends Seeder
 	{
 		DB::table('consentration')->delete();
 		
-		DB::unprepared('ALTER TABLE consentration AUTO_INCREMENT = 0');
+		DB::unprepared('ALTER TABLE consentration AUTO_INCREMENT = 1');
 		
 		$consentrationModel = new Consentration();
 		$consentrationModel->consentration_name = 'Belum Konsentrasi';

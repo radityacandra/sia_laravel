@@ -48,148 +48,86 @@
 				</div>
 				<div class="box-body">
 					<ul class="nav nav-tabs">
-						<li role="presentation" class="active"><a href="#semester1" data-toggle="tab">Semester 1</a></li>
-						<li role="presentation"><a href="#semester2" data-toggle="tab">Semester 2</a></li>
-						<li role="presentation"><a href="#semester3" data-toggle="tab">Semester 3</a></li>
+						<?php $counter = 0; ?>
+						@foreach($viewData['array_semester'] as $value)
+							@if($counter == 0)
+								<li role="presentation" class="active"><a href="#{{ $value }}" data-toggle="tab">{{ $value }}</a></li>
+							@else
+								<li role="presentation"><a href="#{{ $value }}" data-toggle="tab">{{ $value }}</a></li>
+							@endif
+							<?php $counter++; ?>
+						@endforeach
 					</ul>
 					
 					<div class="tab-content">
-						<div id="semester1" class="tab-pane fade in active">
-							<table class="table table-striped table-hover">
-								<thead>
-								<tr>
-									<th>Kode Mapel</th>
-									<th>Nama Mapel</th>
-									<th>Bobot Mapel</th>
-									<th>Nilai</th>
-									<th>Action</th>
-								</tr>
-								</thead>
-								<tbody>
-								<tr>
-									<td>MTK01</td>
-									<td>Matematika kelas X</td>
-									<td>3</td>
-									<td>95</td>
-									<td>
-										<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
-									</td>
-								</tr>
-								
-								<tr>
-									<td>FIS01</td>
-									<td>Fisika Dasar kelas X</td>
-									<td>3</td>
-									<td>93</td>
-									<td>
-										<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
-									</td>
-								</tr>
-								
-								<tr>
-									<td>KIM01</td>
-									<td>Kimia Dasar kelas X</td>
-									<td>3</td>
-									<td>91</td>
-									<td>
-										<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
-									</td>
-								</tr>
-								</tbody>
-							</table>
-							<div class="col-md-5"><h4><strong>Rata-rata semester 1</strong></h4></div><div class="col-md-3"><h4><strong>: 91.1</strong></h4></div>
-							<div class="col-md-5"><h4><strong>Rata-rata Kumulatif</strong></h4></div><div class="col-md-3"><h4><strong>: 93.2</strong></h4></div>
-						</div>
 						
-						<div id="semester2" class="tab-pane fade">
-							<table class="table table-striped table-hover">
-								<thead>
-								<tr>
-									<th>Kode Mapel</th>
-									<th>Nama Mapel</th>
-									<th>Bobot Mapel</th>
-									<th>Nilai</th>
-									<th>Action</th>
-								</tr>
-								</thead>
-								<tbody>
-								<tr>
-									<td>IND01</td>
-									<td>Bahasa Indonesia kelas X</td>
-									<td>2</td>
-									<td>85</td>
-									<td>
-										<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
-									</td>
-								</tr>
-								
-								<tr>
-									<td>FIS01</td>
-									<td>Fisika Dasar kelas X</td>
-									<td>3</td>
-									<td>93</td>
-									<td>
-										<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
-									</td>
-								</tr>
-								
-								<tr>
-									<td>KIM01</td>
-									<td>Kimia Dasar kelas X</td>
-									<td>3</td>
-									<td>91</td>
-									<td>
-										<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
-									</td>
-								</tr>
-								</tbody>
-							</table>
-						</div>
+						<?php $counter = 0; ?>
+						@foreach($viewData['array_mapel'] as $listMapel)
+							@if($counter == 0)
+									<div id="semester{{ $counter+1 }}" class="tab-pane fade in active">
+										<table class="table table-striped table-hover">
+											<thead>
+											<tr>
+												<th>Kode Mapel</th>
+												<th>Nama Mapel</th>
+												<th>Bobot Mapel</th>
+												<th>Nilai</th>
+												<th>Action</th>
+											</tr>
+											</thead>
+											<tbody>
+											
+											@foreach($listMapel as $mapel)
+												<tr>
+													<td>{{ $mapel['code'] }}</td>
+													<td>{{ $mapel['name'] }}</td>
+													<td>{{ $mapel['weight'] }}</td>
+													<td>{{ $mapel['grade'] }}</td>
+													<td>
+														<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
+													</td>
+												</tr>
+											@endforeach
+											
+											</tbody>
+										</table>
+										<div class="col-md-5"><h4><strong>Rata-rata semester 1</strong></h4></div><div class="col-md-3"><h4><strong>: 91.1</strong></h4></div>
+										<div class="col-md-5"><h4><strong>Rata-rata Kumulatif</strong></h4></div><div class="col-md-3"><h4><strong>: 93.2</strong></h4></div>
+									</div>
+							@else
+								<li role="presentation"><a href="#{{ $value }}" data-toggle="tab">{{ $value }}</a></li>
+									<div id="semester{{ $counter+1 }}" class="tab-pane fade">
+										<table class="table table-striped table-hover">
+											<thead>
+											<tr>
+												<th>Kode Mapel</th>
+												<th>Nama Mapel</th>
+												<th>Bobot Mapel</th>
+												<th>Nilai</th>
+												<th>Action</th>
+											</tr>
+											</thead>
+											<tbody>
+											
+											@foreach($listMapel as $mapel)
+												<tr>
+													<td>{{ $mapel['code'] }}</td>
+													<td>{{ $mapel['name'] }}</td>
+													<td>{{ $mapel['weight'] }}</td>
+													<td>{{ $mapel['grade'] }}</td>
+													<td>
+														<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
+													</td>
+												</tr>
+											@endforeach
+											
+											</tbody>
+										</table>
+									</div>
+							@endif
+							<?php $counter++; ?>
+						@endforeach
 						
-						<div id="semester3" class="tab-pane fade">
-							<table class="table table-striped table-hover">
-								<thead>
-								<tr>
-									<th>Kode Mapel</th>
-									<th>Nama Mapel</th>
-									<th>Bobot Mapel</th>
-									<th>Nilai</th>
-									<th>Action</th>
-								</tr>
-								</thead>
-								<tbody>
-								<tr>
-									<td>IND01</td>
-									<td>Bahasa Indonesia kelas X</td>
-									<td>2</td>
-									<td>85</td>
-									<td>
-										<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
-									</td>
-								</tr>
-								
-								<tr>
-									<td>FIS01</td>
-									<td>Fisika Dasar kelas X</td>
-									<td>3</td>
-									<td>93</td>
-									<td>
-										<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
-									</td>
-								</tr>
-								
-								<tr>
-									<td>KIM01</td>
-									<td>Kimia Dasar kelas X</td>
-									<td>3</td>
-									<td>91</td>
-									<td>
-										<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
-									</td>
-								</tr>
-								</tbody>
-							</table>
-						</div>
 					</div>
 				</div>
 			</div>
