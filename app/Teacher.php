@@ -11,4 +11,8 @@ class Teacher extends Model
 	public $timestamps = true;
 	
 	protected $fillable = ['NIP', 'full_name', 'joined_at', 'teacher_phone', 'teacher_picture', 'father_name', 'mother_name', 'phone'];
+
+	protected $primaryKey = 'NIP';
+	
+	public $incrementing = false;
 }
