@@ -13,6 +13,7 @@ class TeacherSeeder extends Seeder
 	 */
 	public function run()
 	{
+		DB::table('teacher')->delete();
 		$faker = Factory::create();
 		
 		for($i = 0; $i<50; $i++){

@@ -13,6 +13,7 @@ class StudentSeeder extends Seeder
 	 */
 	public function run()
 	{
+		DB::table('student')->delete();
 		$faker = Factory::create();
 		
 		for($i = 0; $i<500; $i++){
