@@ -27,4 +27,8 @@ class ClassModel extends Model
 	public function hasManySubjects(){
 		return $this->belongsToMany('App\Subject', 'class_receive_subject', 'class_id', 'subject_id');
 	}
+	
+	public function hasHometeacher(){
+		return $this->hasOne('App\Teacher', 'class_id', 'class_id');
+	}
 }
