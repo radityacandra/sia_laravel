@@ -9,6 +9,11 @@ use App\ClassModel;
 
 class ClassDisplayController extends Controller
 {
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+	
 	public function displayAllClass(){
 		$classModel = new ClassModel();
 		$listClass = $classModel->with('detailConsentration')

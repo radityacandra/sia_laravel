@@ -9,6 +9,11 @@ use App\Student;
 
 class StudentDisplayController extends Controller
 {
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+	
 	public function displayAllStudent(){
 		$studentModel = new Student();
 		$listStudent = $studentModel->with('detailClass')

@@ -9,6 +9,11 @@ use App\Teacher;
 
 class TeacherDisplayController extends Controller
 {
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+	
 	public function displayAllTeacher(){
 		$teacherModel = new Teacher();
 		$listTeacher = $teacherModel->orderBy('created_at', 'desc')

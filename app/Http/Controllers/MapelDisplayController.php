@@ -9,6 +9,11 @@ use App\Subject;
 
 class MapelDisplayController extends Controller
 {
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+	
 	public function displayAllMapel(){
 		$subjectModel = new Subject();
 		$listSubject = $subjectModel->with('detailConsentration')
