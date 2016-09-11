@@ -59,3 +59,7 @@ Route::get('class/all', 'ClassDisplayController@displayAllClass');
 Route::get('class/add', function (){
 	return view('class.addclass');
 });
+
+Route::get('class/detail', function (){
+	return view('class.detailclass');
+});
