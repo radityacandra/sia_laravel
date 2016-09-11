@@ -15,7 +15,7 @@ class CreateTeachingSubject extends Migration
         Schema::create('teaching_subject', function (Blueprint $table) {
             $table->increments('teaching_subject_id');
             $table->timestamps();
-            $table->string('NIM');
+            $table->string('NIP');
             $table->string('code_subject');
         });
     }
