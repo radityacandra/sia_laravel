@@ -36,11 +36,13 @@ class MapelDisplayController extends Controller
 		$codeSubject = $request->session()->get('code_subject');
 		
 		$subjectModel = new Subject();
-		$detailSubject = $subjectModel->where('code_subject', '=', $codeSubject)
-																	->first();
+		$detailSubject = $subjectModel->with('detailConsentration', 'teachedByTeacher', 'teachedInClass.detailConsentration', 'teachedInClass.hasHometeacher', 'teachedInClass.memberStudent')
+																	->find($codeSubject);
 		
 		$viewData = array();
 		$viewData['detail_subject'] = $detailSubject;
+		$viewData['teached_by_teacher'] = $detailSubject->teachedByTeacher;
+		$viewData['teached_in_class'] = $detailSubject->teachedInClass;
 		
 		return view('mapel.detailmapel')->with('viewData', $viewData);
 	}

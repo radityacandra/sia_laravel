@@ -86,7 +86,7 @@
 								<td>{{ $subject->subject_weight }} Jam Pelajaran</td>
 								<td>
 									<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
-									<a class="btn btn-default" href="{{ url('mapel/detail') }}"><i class="fa fa-info"></i> Lihat Detail</a>
+									<a class="btn btn-default" href="{{ url('mapel/detail/'.$subject->code_subject) }}"><i class="fa fa-info"></i> Lihat Detail</a>
 									<a class="btn btn-default"><i class="fa fa-trash"></i> Hapus</a>
 								</td>
 							</tr>

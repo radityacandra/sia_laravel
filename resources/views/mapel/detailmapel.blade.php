@@ -21,10 +21,10 @@
 				</div>
 				<div class="box-body">
 					<div class="col-md-12">
-						<div class="col-md-4 col-sm-6"><h3>Nama Mata Pelajaran</h3></div><div class="col-md-8 col-sm-6"><h3>: Matematika Kelas X Semester 1</h3></div>
-						<div class="col-md-4 col-sm-6"><h3>Kode Mata Pelajaran</h3></div><div class="col-md-8 col-sm-6"><h3>: MTK1a</h3></div>
-						<div class="col-md-4 col-sm-6"><h3>Bobot Mata Pelajaran</h3></div><div class="col-md-8 col-sm-6"><h3>: 3 Jam Pelajaran</h3></div>
-						<div class="col-md-4 col-sm-6"><h3>Konsentrasi</h3></div><div class="col-md-8 col-sm-6"><h3>: Ilmu Pengetahuan Alam</h3></div>
+						<div class="col-md-4 col-sm-6"><h3>Nama Mata Pelajaran</h3></div><div class="col-md-8 col-sm-6"><h3>: {{ $viewData['detail_subject']->subject_name }}</h3></div>
+						<div class="col-md-4 col-sm-6"><h3>Kode Mata Pelajaran</h3></div><div class="col-md-8 col-sm-6"><h3>: {{ $viewData['detail_subject']->code_subject }}</h3></div>
+						<div class="col-md-4 col-sm-6"><h3>Bobot Mata Pelajaran</h3></div><div class="col-md-8 col-sm-6"><h3>: {{ $viewData['detail_subject']->subject_weight }} Jam Pelajaran</h3></div>
+						<div class="col-md-4 col-sm-6"><h3>Konsentrasi</h3></div><div class="col-md-8 col-sm-6"><h3>: {{ $viewData['detail_subject']->detailConsentration->consentration_name }}</h3></div>
 					</div>
 				</div>
 			</div>
@@ -41,7 +41,7 @@
 					</div>
 				</div>
 				<div class="box-body">
-					<h4>Total kelas mendapatkan mata pelajaran: <strong>7 kelas</strong></h4>
+					<h4>Total kelas mendapatkan mata pelajaran: <strong>{{ sizeof($viewData['teached_in_class']) }} kelas</strong></h4>
 					
 					<table class="table table-striped table-hover">
 						<thead>
@@ -55,34 +55,17 @@
 						</thead>
 
 						<tbody>
+						
+						@foreach($viewData['teached_in_class'] as $class)
 							<tr>
-								<td>X-9</td>
-								<td>Sri Rahayuningsih, S.Pd.</td>
-								<td>Belum konsentrasi</td>
-								<td>43</td>
+								<td>{{ $class->class_name }}</td>
+								<td>{{ $class->hasHometeacher->full_name }}</td>
+								<td>{{ $class->detailConsentration->consentration_name }}</td>
+								<td>{{ sizeof($class->memberStudent) }}</td>
 								<td>84.5</td>
 							</tr>
-							<tr>
-								<td>X-7</td>
-								<td>Sri Rahayuningsih, S.Pd.</td>
-								<td>Belum konsentrasi</td>
-								<td>43</td>
-								<td>84.5</td>
-							</tr>
-							<tr>
-								<td>X-5</td>
-								<td>Sri Rahayuningsih, S.Pd.</td>
-								<td>Belum konsentrasi</td>
-								<td>43</td>
-								<td>84.5</td>
-							</tr>
-							<tr>
-								<td>X-6</td>
-								<td>Sri Rahayuningsih, S.Pd.</td>
-								<td>Belum konsentrasi</td>
-								<td>43</td>
-								<td>84.5</td>
-							</tr>
+						@endforeach
+							
 						</tbody>
 					</table>
 				</div>
@@ -109,10 +92,14 @@
 						</thead>
 
 						<tbody>
+						
+						@foreach($viewData['teached_by_teacher'] as $teacher)
 							<tr>
-								<td>1981 0921 2014 04 1001</td>
-								<td>Raditya Chandra Buana, S.T.</td>
+								<td>{{ $teacher->NIP }}</td>
+								<td>{{ $teacher->full_name }}</td>
 							</tr>
+						@endforeach
+						
 						</tbody>
 					</table>
 				</div>
