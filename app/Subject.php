@@ -27,4 +27,8 @@ class Subject extends Model
 	public function teachedToStudents(){
 		return $this->belongsToMany('App\Student', 'student_receive_subject', 'subject_id', 'NIM');
 	}
+	
+	public function teachedByTeacher(){
+		return $this->belongsToMany('App\Teacher', 'teaching_subject', 'code_subject', 'NIP');
+	}
 }

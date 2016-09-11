@@ -19,4 +19,8 @@ class Teacher extends Model
 	public function hometeacher(){
 		return $this->belongsTo('App\Teacher', 'class_id', 'class_id');
 	}
+	
+	public function teachingSubject(){
+		return $this->belongsToMany('App\Subject', 'teaching_subject', 'NIP', 'code_subject');
+	}
 }
