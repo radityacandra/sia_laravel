@@ -12,6 +12,8 @@ class ClassReceiveSubjectSeeder extends Seeder
 	 */
 	public function run()
 	{
+		DB::table('class_receive_subject')->delete();
+		
 		$classes = ['X1', 'X2', 'X3', 'X4', 'X5', 'X6', 'X7', 'X8', 'X9', 'X10'];
 		foreach ($classes as $keyClass){
 			$classModel = new ClassModel();
