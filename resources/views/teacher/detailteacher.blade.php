@@ -26,7 +26,7 @@
 					<div class="col-md-8">
 						<div class="col-md-4 col-sm-6"><h3>Nama</h3></div><div class="col-md-8 col-sm-6"><h3>: {{ $viewData['teacher_profile']->full_name }}</h3></div>
 						<div class="col-md-4 col-sm-6"><h3>NIP</h3></div><div class="col-md-8 col-sm-6"><h3>: {{ $viewData['teacher_profile']->NIP }}</h3></div>
-						<div class="col-md-4 col-sm-6"><h3>Status</h3></div><div class="col-md-8 col-sm-6"><h3>: Wali Kelas</h3></div>
+						<div class="col-md-4 col-sm-6"><h3>Status</h3></div><div class="col-md-8 col-sm-6"><h3>: {{ $viewData['teacher_profile']['status'] }}</h3></div>
 						<div class="col-md-6 col-sm-6" style="margin-top:20px;"><a class="btn btn-primary col-md-12 col-sm-12">Jadikan Guru</a></div>
 						<div class="col-md-6 col-sm-6" style="margin-top:20px;"><a class="btn btn-primary col-md-12 col-sm-12">Jadikan Wali Kelas</a></div>
 					</div>
@@ -45,10 +45,14 @@
 					</div>
 				</div>
 				<div class="box-body">
-					<h4>Saat ini menjabat wali kelas <strong>X-9</strong></h4>
-					<h4>Konsentrasi kelas: Ilmu Pengetahuan Alam</h4>
-					<h4>Rata-rata kelas: 82,3 <a href="#">Lihat detail >></a></h4>
-					<h4>Jumlah siswa: 34 orang <a href="#">Lihat detail >></a></h4>
+					@if(isset($viewData['class_info']))
+						<h4>Saat ini menjabat wali kelas <strong>{{ $viewData['class_info']['name'] }}</strong></h4>
+						<h4>Konsentrasi kelas: {{ $viewData['class_info']['consentration'] }}</h4>
+						<h4>Rata-rata kelas: 82,3 <a href="#">Lihat detail >></a></h4>
+						<h4>Jumlah siswa: {{ $viewData['class_info']['total_student'] }} orang <a href="#">Lihat detail >></a></h4>
+					@else
+						<h3>Tidak sedang menjabat sebagai Wali Kelas</h3>
+					@endif
 				</div>
 			</div>
 		</div>
@@ -64,7 +68,7 @@
 					</div>
 				</div>
 				<div class="box-body">
-					<h4>Mengajar 2 mata pelajaran</h4>
+					<h4>Mengajar {{ sizeof($viewData['teaching_subject']) }} mata pelajaran</h4>
 
 					<table class="table table-striped table-hover">
 						<thead>
@@ -78,9 +82,11 @@
 						</thead>
 
 						<tbody>
+						
+						@foreach($viewData['teaching_subject'] as $subject)
 							<tr>
-								<td>MTK1a</td>
-								<td>Matematika Kelas 10 Semester Gasal</td>
+								<td>{{ $subject->code_subject }}</td>
+								<td>{{ $subject->subject_name }}</td>
 								<td>7 Kelas</td>
 								<td>21 Jam</td>
 								<td>
@@ -88,16 +94,8 @@
 									<a class="btn btn-primary">Masukkan Nilai</a>
 								</td>
 							</tr>
-							<tr>
-								<td>MTK1b</td>
-								<td>Matematika Kelas 10 Semester Genap</td>
-								<td>7 Kelas</td>
-								<td>21 Jam</td>
-								<td>
-									<a class="btn btn-primary" href="{{ url('mapel/detail') }}">Lihat Mapel</a>
-									<a class="btn btn-primary">Masukkan Nilai</a>
-								</td>
-							</tr>
+						@endforeach
+						
 						</tbody>
 					</table>
 				</div>
