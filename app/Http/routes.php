@@ -60,6 +60,6 @@ Route::get('class/add', function (){
 	return view('class.addclass');
 });
 
-Route::get('class/detail', function (){
-	return view('class.detailclass');
-});
+Route::get('class/detail', 'ClassDisplayController@displayDetailClass');
+
+Route::get('class/detail/{class_id}', 'ClassDisplayController@setClassSession');

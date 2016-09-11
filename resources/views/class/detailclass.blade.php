@@ -21,9 +21,9 @@
 				</div>
 				<div class="box-body">
 					<div class="col-md-12">
-						<div class="col-md-4 col-sm-6"><h3>Nama Kelas</h3></div><div class="col-md-8 col-sm-6"><h3>: X-9</h3></div>
-						<div class="col-md-4 col-sm-6"><h3>Kode Kelas</h3></div><div class="col-md-8 col-sm-6"><h3>: X9</h3></div>
-						<div class="col-md-4 col-sm-6"><h3>Konsentrasi</h3></div><div class="col-md-8 col-sm-6"><h3>: Ilmu Pengetahuan Alam</h3></div>
+						<div class="col-md-4 col-sm-6"><h3>Nama Kelas</h3></div><div class="col-md-8 col-sm-6"><h3>: {{ $viewData['class_profile']->class_name }}</h3></div>
+						<div class="col-md-4 col-sm-6"><h3>Kode Kelas</h3></div><div class="col-md-8 col-sm-6"><h3>: {{ $viewData['class_profile']->class_id }}</h3></div>
+						<div class="col-md-4 col-sm-6"><h3>Konsentrasi</h3></div><div class="col-md-8 col-sm-6"><h3>: {{ $viewData['class_profile']->detailConsentration->consentration_name }}</h3></div>
 					</div>
 				</div>
 			</div>
@@ -52,13 +52,17 @@
 						</thead>
 						
 						<tbody>
-						<tr>
-							<td>MTK1a</td>
-							<td>Matematika Kelas X Semester 1</td>
-							<td>3 Jam Pelajaran</td>
-							<td>Raditya Chandra Buana</td>
-							<td><a class="btn btn-default"><i class="fa fa-eye"></i> Lihat Detail</a></td>
-						</tr>
+						
+						@foreach($viewData['subjects'] as $subject)
+							<tr>
+								<td>{{ $subject->code_subject }}</td>
+								<td>{{ $subject->subject_name }}</td>
+								<td>{{ $subject->subject_weight }} Jam Pelajaran</td>
+								<td>{{ $subject->teachedByTeacher[0]->full_name }}</td>
+								<td><a class="btn btn-default" href="{{ url('mapel/detail/'. $subject->code_subject) }}"><i class="fa fa-eye"></i> Lihat Detail</a></td>
+							</tr>
+						@endforeach
+						
 						</tbody>
 					</table>
 				</div>
@@ -87,11 +91,15 @@
 						</tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>330335</td>
-							<td>Raditya Chandra Buana</td>
-							<td><a class="btn btn-default"><i class="fa fa-eye"></i> Lihat Detail</a></td>
-						</tr>
+						
+						@foreach($viewData['students'] as $student)
+							<tr>
+								<td>{{ $student->NIM }}</td>
+								<td>{{ $student->full_name }}</td>
+								<td><a class="btn btn-default" href="{{ url('student/detail/'. $student->NIM) }}"><i class="fa fa-eye"></i> Lihat Detail</a></td>
+							</tr>
+						@endforeach
+						
 						</tbody>
 					</table>
 				</div>
