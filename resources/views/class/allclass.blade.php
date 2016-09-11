@@ -98,7 +98,7 @@
 								<td>{{ $class->detailConsentration->consentration_name }}</td>
 								<td>
 									<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
-									<a class="btn btn-default" href="{{ url('mapel/detail') }}"><i class="fa fa-info"></i> Lihat Detail</a>
+									<a class="btn btn-default" href="{{ url('class/detail/'. $class->class_id) }}"><i class="fa fa-info"></i> Lihat Detail</a>
 									<a class="btn btn-default"><i class="fa fa-trash"></i> Hapus</a>
 								</td>
 							</tr>
