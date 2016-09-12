@@ -26,7 +26,7 @@
 								<label class="control-label">Cari Kelas</label>
 							</div>
 							<div class="col-md-5">
-								<input type="text" class="form-control" name="class_name" placeholder="masukkan nama kelas" value="{{ $class_name }}">
+								<input type="text" class="form-control" name="class_name" placeholder="masukkan nama kelas" value="{{ old('class_name') }}">
 							</div>
 						</div>
 						
