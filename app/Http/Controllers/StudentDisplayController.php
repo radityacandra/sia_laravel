@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Student;
+use App\ClassModel;
 
 class StudentDisplayController extends Controller
 {
@@ -14,14 +15,40 @@ class StudentDisplayController extends Controller
 		$this->middleware('auth');
 	}
 	
-	public function displayAllStudent(){
-		$studentModel = new Student();
-		$listStudent = $studentModel->with('detailClass')
-																->orderBy('created_at', 'desc')
-																->paginate(15);
+	public function displayAllStudent(Request $request){
+		$request->flash();
+		$student_name = $request->old('student_name');
+		$student_nim = $request->old('student_nim');
+		
+		if (!$request->exists("_token")){
+			$studentModel = new Student();
+			$listStudent = $studentModel->with('detailClass')
+																	->orderBy('created_at', 'desc')
+																	->paginate(15);
+		} else {
+			$input = $request->all();
+			$nama = $input['student_name'];
+			$nim = $input['student_nim'];
+			$class = $input['class'];
+			$sortColumn = $input['sortcolumn'];
+			$sort = $input['sort'];
+			
+			$studentModel = new Student();
+			$listStudent = $studentModel->where('full_name', 'like', '%'.$nama.'%')
+																	->where('NIM', 'like', '%'.$nim.'%')
+																	->where('current_class', 'like', '%'.$class.'%')
+																	->with('detailClass')
+																	->orderBy($sortColumn, $sort)
+																	->paginate(15);
+		}
+		
+		$classModel = new ClassModel();
+		$listClass = $classModel->select('class_id','class_name')
+														->get();
 		
 		$viewData = array();
 		$viewData['list_student'] = $listStudent;
+		$viewData['list_class'] = $listClass;
 		
 		return view('student.allstudent')->with('viewData', $viewData);
 	}

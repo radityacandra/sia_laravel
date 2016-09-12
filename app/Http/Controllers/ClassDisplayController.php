@@ -14,11 +14,36 @@ class ClassDisplayController extends Controller
 		$this->middleware('auth');
 	}
 	
-	public function displayAllClass(){
-		$classModel = new ClassModel();
-		$listClass = $classModel->with('detailConsentration')
-														->orderBy('class_id', 'asc')
-														->paginate(15);
+	public function displayAllClass(Request $request){
+		$request->flash();
+		$class_name = $request->old('class_name');
+		
+		if (!$request->exists('_token')){
+			$classModel = new ClassModel();
+			$listClass = $classModel->with('detailConsentration')
+															->orderBy('class_id', 'asc')
+															->paginate(15);
+		} else {
+			$input = $request->all();
+			$className = $input['class_name'];
+			$consentration = $input['consentration'];
+			$sortOption = $input['sortoption'];
+			$sort = $input['sort'];
+			
+			$classModel = new ClassModel();
+			if ($consentration!='all'){
+				$listClass = $classModel->where('class_name', 'like', '%'.$className.'%')
+																->where('consentration_id', '=', $consentration)
+																->with('detailConsentration')
+																->orderBy($sortOption, $sort)
+																->paginate(15);
+			} else {
+				$listClass = $classModel->where('class_name', 'like', '%'.$className.'%')
+																->with('detailConsentration')
+																->orderBy($sortOption, $sort)
+																->paginate(15);
+			}
+		}
 		
 		$viewData = array();
 		$viewData['list_class'] = $listClass;

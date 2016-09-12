@@ -14,11 +14,27 @@ class MapelDisplayController extends Controller
 		$this->middleware('auth');
 	}
 	
-	public function displayAllMapel(){
-		$subjectModel = new Subject();
-		$listSubject = $subjectModel->with('detailConsentration')
-																->orderBy('created_at', 'desc')
-																->paginate(15);
+	public function displayAllMapel(Request $request){
+		$request->flash();
+		$mapel_name = $request->old('mapel_name');
+		
+		if (!$request->exists('_token')){
+			$subjectModel = new Subject();
+			$listSubject = $subjectModel->with('detailConsentration')
+																	->orderBy('created_at', 'desc')
+																	->paginate(15);
+		} else {
+			$input = $request->all();
+			$mapelName = $input['mapel_name'];
+			$sortOption = $input['sortoption'];
+			$sort = $input['sort'];
+			
+			$subjectModel = new Subject();
+			$listSubject = $subjectModel->where('subject_name', 'like', '%'.$mapelName.'%')
+																	->with('detailConsentration')
+																	->orderBy($sortOption, $sort)
+																	->paginate(15);
+		}
 		
 		$viewData = array();
 		$viewData['list_subject'] = $listSubject;

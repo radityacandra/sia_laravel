@@ -20,13 +20,13 @@
 					<h3 class="box-title">Panel Kontrol</h3>
 				</div>
 				<div class="box-body">
-					<form class="form-horizontal">
+					<form class="form-horizontal" method="get">
 						<div class="form-group">
 							<div class="col-md-5">
 								<label class="control-label">Cari Berdasar Nama</label>
 							</div>
 							<div class="col-md-5">
-								<input type="text" class="form-control" name="teacher_name" placeholder="masukkan nama guru">
+								<input type="text" class="form-control" name="teacher_name" placeholder="masukkan nama guru" value="{{ old('teacher_name') }}">
 							</div>
 						</div>
 						
@@ -35,7 +35,7 @@
 								<label class="control-label">Cari Berdasar NIP</label>
 							</div>
 							<div class="col-md-5">
-								<input type="text" class="form-control" name="teacher_nip" placeholder="masukkan NIP guru">
+								<input type="text" class="form-control" name="teacher_nip" placeholder="masukkan NIP guru" value="{{ old('teacher_nip') }}">
 							</div>
 						</div>
 						
@@ -45,8 +45,8 @@
 							</div>
 							<div class="col-md-5">
 								<select class="form-control" name="status">
-									<option>Guru</option>
-									<option>Wali Kelas</option>
+									<option value="guru">Guru</option>
+									<option value="wali">Wali Kelas</option>
 								</select>
 							</div>
 						</div>
@@ -56,19 +56,21 @@
 								<label class="control-label">Urutkan Berdasarkan</label>
 							</div>
 							<div class="col-md-3">
-								<select class="form-control" name="class">
-									<option>NIP</option>
-									<option>Nama</option>
-									<option>Status</option>
+								<select class="form-control" name="sortoption">
+									<option value="NIP">NIP</option>
+									<option value="full_name">Nama</option>
+									<option value="status">Status</option>
 								</select>
 							</div>
 							<div class="col-md-2">
-								<select class="form-control" name="class">
-									<option>ASC</option>
-									<option>DESC</option>
+								<select class="form-control" name="sort">
+									<option value="asc">ASC</option>
+									<option value="desc">DESC</option>
 								</select>
 							</div>
 						</div>
+						
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						
 						<div class="form-group">
 							<div class="col-md-3 col-md-offset-5">
@@ -103,7 +105,7 @@
 							<tr>
 								<td>{{ $teacher->NIP }}</td>
 								<td>{{ $teacher->full_name }}</td>
-								<td><label class="label label-info">Guru</label></td>
+								<td><label class="label label-info">{{ $teacher->status }}</label></td>
 								<td>
 									<a class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
 									<a class="btn btn-default" href="{{ url('teacher/detail/'.$teacher->NIP) }}"><i class="fa fa-info"></i> Lihat Detail</a>

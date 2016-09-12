@@ -20,13 +20,13 @@
 					<h3 class="box-title">Panel Kontrol</h3>
 				</div>
 				<div class="box-body">
-					<form class="form-horizontal">
+					<form class="form-horizontal" method="get">
 						<div class="form-group">
 							<div class="col-md-5">
 								<label class="control-label">Cari Kelas</label>
 							</div>
 							<div class="col-md-5">
-								<input type="text" class="form-control" name="class_name" placeholder="masukkan nama kelas">
+								<input type="text" class="form-control" name="class_name" placeholder="masukkan nama kelas" value="{{ $class_name }}">
 							</div>
 						</div>
 						
@@ -36,10 +36,11 @@
 							</div>
 							<div class="col-md-5">
 								<select name="consentration" class="form-control">
-									<option>Belum Konsentrasi</option>
-									<option>Ilmu Pengetahuan Alam</option>
-									<option>Ilmu Pengetahuan Sosial</option>
-									<option>Sastra dan Bahasa</option>
+									<option value="all">Semua Konsentrasi</option>
+									<option value="1">Belum Konsentrasi</option>
+									<option value="2">Ilmu Pengetahuan Alam</option>
+									<option value="3">Ilmu Pengetahuan Sosial</option>
+									<option value="4">Sastra dan Bahasa</option>
 								</select>
 							</div>
 						</div>
@@ -49,18 +50,20 @@
 								<label class="control-label">Urutkan Berdasarkan</label>
 							</div>
 							<div class="col-md-3">
-								<select class="form-control" name="class">
-									<option>Nama Kelas</option>
-									<option>Konsentrasi Kelas</option>
+								<select class="form-control" name="sortoption">
+									<option value="class_name">Nama Kelas</option>
+									<option value="consentration_id">Konsentrasi Kelas</option>
 								</select>
 							</div>
 							<div class="col-md-2">
-								<select class="form-control" name="class">
-									<option>ASC</option>
-									<option>DESC</option>
+								<select class="form-control" name="sort">
+									<option value="asc">ASC</option>
+									<option value="desc">DESC</option>
 								</select>
 							</div>
 						</div>
+						
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						
 						<div class="form-group">
 							<div class="col-md-3 col-md-offset-5">

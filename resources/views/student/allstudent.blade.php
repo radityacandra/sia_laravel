@@ -20,13 +20,13 @@
 					<h3 class="box-title">Panel Kontrol</h3>
 				</div>
 				<div class="box-body">
-					<form class="form-horizontal">
+					<form class="form-horizontal" method="get">
 						<div class="form-group">
 							<div class="col-md-5">
 								<label class="control-label">Cari Berdasar Nama</label>
 							</div>
 							<div class="col-md-5">
-								<input type="text" class="form-control" name="student_name" placeholder="masukkan nama siswa">
+								<input type="text" class="form-control" name="student_name" placeholder="masukkan nama siswa" value="{{ old('student_name') }}">
 							</div>
 						</div>
 						
@@ -35,23 +35,25 @@
 								<label class="control-label">Cari Berdasar NIM</label>
 							</div>
 							<div class="col-md-5">
-								<input type="text" class="form-control" name="student_nim" placeholder="masukkan NIM siswa">
+								<input type="text" class="form-control" name="student_nim" placeholder="masukkan NIM siswa" value="{{ old('student_nim') }}">
 							</div>
 						</div>
 						
 						<div class="form-group">
 							<div class="col-md-5">
-								<label class="control-label">Kelas</label>
+								<label class="control-label">Cari Berdasar Kelas</label>
 							</div>
 							<div class="col-md-5">
-								<select class="form-control" name="class">
-									<option>X-1</option>
-									<option>X-2</option>
-									<option>X-3</option>
-									<option>X-4</option>
-									<option>X-5</option>
-									<option>XI IA-1</option>
+								<select class="form-control class" name="class">
+									<option value="">(Pilih Kelas)</option>
+									@foreach($viewData['list_class'] as $class)
+										<option value="{{ $class->class_id }}">{{ $class->class_name }}</option>
+									@endforeach
 								</select>
+								
+								<script type="text/javascript">
+									$(".class").select2();
+								</script>
 							</div>
 						</div>
 						
@@ -60,20 +62,22 @@
 								<label class="control-label">Urutkan Berdasarkan</label>
 							</div>
 							<div class="col-md-3">
-								<select class="form-control" name="class">
-									<option>NIM</option>
-									<option>Nama</option>
-									<option>Kelas</option>
+								<select class="form-control" name="sortcolumn">
+									<option value="NIM">NIM</option>
+									<option value="full_name">Nama</option>
+									<option value="current_class">Kelas</option>
 									<option>Status</option>
 								</select>
 							</div>
 							<div class="col-md-2">
-								<select class="form-control" name="class">
-									<option>ASC</option>
-									<option>DESC</option>
+								<select class="form-control" name="sort">
+									<option value="asc">ASC</option>
+									<option value="desc">DESC</option>
 								</select>
 							</div>
 						</div>
+						
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						
 						<div class="form-group">
 							<div class="col-md-3 col-md-offset-5">

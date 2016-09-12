@@ -15,10 +15,30 @@ class TeacherDisplayController extends Controller
 		$this->middleware('auth');
 	}
 	
-	public function displayAllTeacher(){
-		$teacherModel = new Teacher();
-		$listTeacher = $teacherModel->orderBy('created_at', 'desc')
-																->paginate(15);
+	public function displayAllTeacher(Request $request){
+		$request->flash();
+		$teacher_name = $request->old('teacher_name');
+		$teacher_nip = $request->old('teacher_nip');
+		
+		if (!$request->exists('_token')){
+			$teacherModel = new Teacher();
+			$listTeacher = $teacherModel->orderBy('created_at', 'desc')
+																	->paginate(15);
+		} else {
+			$input = $request->all();
+			$teacherName = $input['teacher_name'];
+			$teacherNip = $input['teacher_nip'];
+			$status = $input['status'];
+			$sortOption = $input['sortoption'];
+			$sort = $input['sort'];
+			
+			$teacherModel = new Teacher();
+			$listTeacher = $teacherModel->where('full_name', 'like', '%'.$teacherName.'%')
+																	->where('NIP', 'like', '%'.$teacherNip.'%')
+																	->where('status', 'like', '%'.$status.'%')
+																	->orderBy($sortOption, $sort)
+																	->paginate(15);
+		}
 		
 		$viewData = array();
 		$viewData['list_teacher'] = $listTeacher;

@@ -26,7 +26,7 @@
 								<label class="control-label">Cari Berdasar Nama</label>
 							</div>
 							<div class="col-md-5">
-								<input type="text" class="form-control" name="mapel_name" placeholder="masukkan nama mata pelajaran">
+								<input type="text" class="form-control" name="mapel_name" placeholder="masukkan nama mata pelajaran" value="{{ old('mapel_name') }}">
 							</div>
 						</div>
 						
@@ -35,20 +35,22 @@
 								<label class="control-label">Urutkan Berdasarkan</label>
 							</div>
 							<div class="col-md-3">
-								<select class="form-control" name="class">
-									<option>Kode Mapel</option>
-									<option>Nama Mata Pelajaran</option>
-									<option>Bobot</option>
-									<option>Status</option>
+								<select class="form-control" name="sortoption">
+									<option value="code_subject">Kode Mapel</option>
+									<option value="subject_name">Nama Mata Pelajaran</option>
+									<option value="subject_weight">Bobot</option>
+									<option value="consentration_id">Konsentrasi</option>
 								</select>
 							</div>
 							<div class="col-md-2">
-								<select class="form-control" name="class">
-									<option>ASC</option>
-									<option>DESC</option>
+								<select class="form-control" name="sort">
+									<option value="asc">ASC</option>
+									<option value="desc">DESC</option>
 								</select>
 							</div>
 						</div>
+						
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						
 						<div class="form-group">
 							<div class="col-md-3 col-md-offset-5">
