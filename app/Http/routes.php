@@ -56,9 +56,9 @@ Route::get('mapel/add', function(){
 
 Route::get('class/all', 'ClassDisplayController@displayAllClass');
 
-Route::get('class/add', function (){
-	return view('class.addclass');
-});
+Route::get('class/add', 'AddClassController@displayAddClassForm');
+
+Route::post('class/add', 'AddClassController@proccessAddClass');
 
 Route::get('class/detail', 'ClassDisplayController@displayDetailClass');
 

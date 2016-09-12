@@ -23,4 +23,8 @@ class Student extends Model
 	public function receiveManySubject(){
 		return $this->belongsToMany('App\Subject', 'student_receive_subject', 'NIM', 'subject_id')->withPivot('semester', 'grade');
 	}
+	
+	public function classHistory(){
+		return $this->belongsToMany('App\ClassModel', 'student_class_history', 'NIM', 'class_id');
+	}
 }

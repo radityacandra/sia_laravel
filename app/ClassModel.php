@@ -31,4 +31,8 @@ class ClassModel extends Model
 	public function hasHometeacher(){
 		return $this->hasOne('App\Teacher', 'class_id', 'class_id');
 	}
+	
+	public function studentHistory(){
+		return $this->belongsToMany('App\Student', 'student_class_history', 'class_id', 'NIM');
+	}
 }
