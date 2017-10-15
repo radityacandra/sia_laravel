@@ -13,7 +13,7 @@
                 <div class="pull-left info">
                     <p>{{ Auth::user()->name }}</p>
                     <!-- Status -->
-                    <a href="#"><i class="fa fa-circle text-success"></i> {{ trans('adminlte_lang::message.online') }}</a>
+                    <a href="#"><i class="fa fa-circle text-success"></i> {{ trans('message.online') }}</a>
                 </div>
             </div>
         @endif
@@ -21,7 +21,7 @@
         <!-- search form (Optional) -->
         <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="{{ trans('adminlte_lang::message.search') }}..."/>
+                <input type="text" name="q" class="form-control" placeholder="{{ trans('message.search') }}..."/>
               <span class="input-group-btn">
                 <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
               </span>
@@ -31,35 +31,35 @@
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
-            <li class="header">{{ trans('adminlte_lang::message.header') }}</li>
+            <li class="header">{{ trans('message.header') }}</li>
             <!-- Optionally, you can add icons to the links -->
-            <li><a href="{{ url('home') }}"><i class='fa fa-home'></i> <span>{{ trans('adminlte_lang::message.dashboard') }}</span></a></li>
+            <li><a href="{{ url('home') }}"><i class='fa fa-home'></i> <span>{{ trans('message.dashboard') }}</span></a></li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-users'></i> <span>{{ trans('adminlte_lang::message.student') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-users'></i> <span>{{ trans('message.student') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('student/all') }}">{{ trans('adminlte_lang::message.allstudent') }}</a></li>
-                    <li><a href="{{ url('student/add') }}">{{ trans('adminlte_lang::message.addstudent') }}</a></li>
+                    <li><a href="{{ url('student/all') }}">{{ trans('message.allstudent') }}</a></li>
+                    <li><a href="{{ url('student/add') }}">{{ trans('message.addstudent') }}</a></li>
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-user-md'></i> <span>{{ trans('adminlte_lang::message.teacher') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-user-md'></i> <span>{{ trans('message.teacher') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('teacher/all') }}">{{ trans('adminlte_lang::message.allteacher') }}</a></li>
-                    <li><a href="{{ url('teacher/add') }}">{{ trans('adminlte_lang::message.addteacher') }}</a></li>
+                    <li><a href="{{ url('teacher/all') }}">{{ trans('message.allteacher') }}</a></li>
+                    <li><a href="{{ url('teacher/add') }}">{{ trans('message.addteacher') }}</a></li>
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-building'></i> <span>{{ trans('adminlte_lang::message.class') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-building'></i> <span>{{ trans('message.class') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('class/all') }}">{{ trans('adminlte_lang::message.allclass') }}</a></li>
-                    <li><a href="{{ url('class/add') }}">{{ trans('adminlte_lang::message.addclass') }}</a></li>
+                    <li><a href="{{ url('class/all') }}">{{ trans('message.allclass') }}</a></li>
+                    <li><a href="{{ url('class/add') }}">{{ trans('message.addclass') }}</a></li>
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-book'></i> <span>{{ trans('adminlte_lang::message.subject') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-book'></i> <span>{{ trans('message.subject') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('mapel/all') }}">{{ trans('adminlte_lang::message.allsubject') }}</a></li>
-                    <li><a href="{{ url('mapel/add') }}">{{ trans('adminlte_lang::message.addsubject') }}</a></li>
+                    <li><a href="{{ url('mapel/all') }}">{{ trans('message.allsubject') }}</a></li>
+                    <li><a href="{{ url('mapel/add') }}">{{ trans('message.addsubject') }}</a></li>
                 </ul>
             </li>
         </ul><!-- /.sidebar-menu -->
